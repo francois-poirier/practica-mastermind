@@ -7,11 +7,11 @@ import java.util.Random;
 public class SecretCombination {
 
 	private static final int NUM = 4;
-	
+
 	private List<Color> colors;
-	
+
 	public SecretCombination() {
-		for(Color color: Color.values()) {
+		for (Color color : Color.values()) {
 			this.colors.add(color);
 		}
 		Random random = new Random(System.currentTimeMillis());
@@ -20,7 +20,7 @@ public class SecretCombination {
 		}
 		Collections.shuffle(this.colors);
 	}
-	
+
 	public Result getResult(ProposeCombination proposedCombination) {
 		int blacks = 0;
 		for (int i = 0; i < this.colors.size(); i++) {

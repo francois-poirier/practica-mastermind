@@ -1,9 +1,9 @@
 package org.urjc.mastermind;
 
 public class Result {
-	
+
 	private static final int NUM = 4;
-	
+
 	private int blacks = 0;
 
 	private int whites = 0;

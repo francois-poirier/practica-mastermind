@@ -3,12 +3,12 @@ package org.urjc.mastermind;
 import java.util.List;
 
 public class ProposeCombination {
-	
+
 	private static final int WIDTH = 4;
-	private int with=WIDTH;
-	
+	private int with = WIDTH;
+
 	private List<Color> colors;
-	
+
 	public ProposeCombination(List<Color> colors) {
 		this.colors = colors;
 	}
@@ -25,8 +25,6 @@ public class ProposeCombination {
 		}
 		return false;
 	}
-	
-	
 
 	public List<Color> getColors() {
 		return colors;
@@ -35,5 +33,5 @@ public class ProposeCombination {
 	public int getWith() {
 		return with;
 	}
-	
+
 }

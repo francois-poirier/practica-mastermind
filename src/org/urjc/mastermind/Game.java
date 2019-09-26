@@ -36,9 +36,9 @@ public class Game {
 	public boolean isLooser() {
 		return this.attempts == MAX_ATTEMPTS;
 	}
-	
+
 	public boolean isWinner() {
-		return this.results.get(this.attempts-1).isWinner();
+		return this.results.get(this.attempts - 1).isWinner();
 	}
 
 	public int getAttempts() {
