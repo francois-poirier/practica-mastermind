@@ -6,7 +6,7 @@ public class MasterMind {
 
 	private static final String QUESTION = "Do you want to continue? (s/n):";
 	private static final String LOST_MESSAGE = "You've lost!!! :-(";
-	private static final String WON_MESSAGE = "You've won!!! ;-)";
+	private static final String WIN_MESSAGE = "You've won!!! ;-)";
 	private static final String TITLE = "----- MASTERMIND -----";
 	private static final char YES = 's';
 
@@ -36,7 +36,7 @@ public class MasterMind {
 				proposedPlayer.writeProposedCombinations();
 			}
 			if (proposedPlayer.isWinner()) {
-				System.out.println(WON_MESSAGE);
+				System.out.println(WIN_MESSAGE);
 			} else {
 				System.out.println(LOST_MESSAGE);
 			}
