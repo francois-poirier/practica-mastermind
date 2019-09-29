@@ -13,7 +13,6 @@ public class ProposedCombination extends Combination {
 	public static final char[] INITIALS = { 'r', 'b', 'y', 'g', 'o', 'p' };
 
 	private Scanner scanner = new Scanner(System.in);
-	private List<Color> colors;
 	private Result result;
 
 	public void read() {
