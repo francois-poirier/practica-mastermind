@@ -8,7 +8,6 @@ import org.urjc.mastermind.type.Color;
 
 public class SecretCombination extends Combination {
 
-	
 	private static final String SECRET = "****";
 
 	public SecretCombination() {
@@ -21,7 +20,7 @@ public class SecretCombination extends Combination {
 		}
 		Collections.shuffle(this.colors);
 	}
-	
+
 	public Result calculateResult(ProposedCombination proposedCombination) {
 		int deads = 0;
 		for (int i = 0; i < this.colors.size(); i++) {
@@ -37,7 +36,7 @@ public class SecretCombination extends Combination {
 		}
 		return new Result(deads, damaged - deads);
 	}
-	
+
 	public void write() {
 		System.out.println(SECRET);
 	}

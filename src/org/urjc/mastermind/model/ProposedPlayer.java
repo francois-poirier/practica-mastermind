@@ -39,8 +39,8 @@ public class ProposedPlayer {
 
 	public boolean isWinner() {
 		ProposedCombination lastProposedCombination = getLastProposedCombination();
-		if (lastProposedCombination!=null) {
-			return lastProposedCombination.isWinner();	
+		if (lastProposedCombination != null) {
+			return lastProposedCombination.isWinner();
 		}
 		return false;
 	}

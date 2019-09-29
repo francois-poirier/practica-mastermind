@@ -26,7 +26,7 @@ public class Result {
 	public int getDamaged() {
 		return this.damaged;
 	}
-	
+
 	public void write() {
 		System.out.println(" --> " + deads + " blacks and " + damaged + " whites");
 	}

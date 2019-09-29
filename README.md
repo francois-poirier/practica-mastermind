@@ -1,3 +1,3 @@
 # practica-mastermind
 
-[Work in progress](https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuU9ApaaiBbPmpiyhpiz9XVBS4tDXpE3KvABK4kVytAJClCIIpFmyg7X0KNv1Vd4gfaHGQd5fJWdSs9py8Yuka7aAMhgwTbYC0yif6If1v9Lo4_CgbR2PZbKTr39CvM2LI0eX3i6m7RioBeVKl1HWu000)
+[Work in progress]()
