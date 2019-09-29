@@ -14,7 +14,7 @@ public class ProposedPlayer {
 		this.clear();
 	}
 
-	public void clear() {
+	private void clear() {
 		this.proposedCombinations = new ArrayList<ProposedCombination>();
 		this.attempts = 0;
 	}
