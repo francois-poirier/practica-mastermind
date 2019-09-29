@@ -15,25 +15,6 @@ public class ProposedCombination extends Combination {
 	private Scanner scanner = new Scanner(System.in);
 	private Result result;
 
-	public void read() {
-		String characters = null;
-		boolean ok = false;
-		do {
-			System.out.print(PROPOSED_COMBINATION);
-			characters = this.scanner.nextLine();
-			ok = checkInput(characters);
-			if (!ok) {
-				System.out.println(WRONG_COLORS);
-			}
-
-		} while (!ok);
-
-		this.colors = new ArrayList<Color>();
-		for (int i = 0; i < characters.length(); i++) {
-			colors.add(getColor(characters.charAt(i)));
-		}
-	}
-
 	private Color getColor(char character) {
 		for (int i = 0; i < INITIALS.length; i++) {
 			if (INITIALS[i] == character) {
@@ -55,6 +36,25 @@ public class ProposedCombination extends Combination {
 			return true;
 		}
 		return false;
+	}
+
+	public void read() {
+		String characters = null;
+		boolean ok = false;
+		do {
+			System.out.print(PROPOSED_COMBINATION);
+			characters = this.scanner.nextLine();
+			ok = checkInput(characters);
+			if (!ok) {
+				System.out.println(WRONG_COLORS);
+			}
+
+		} while (!ok);
+
+		this.colors = new ArrayList<Color>();
+		for (int i = 0; i < characters.length(); i++) {
+			colors.add(getColor(characters.charAt(i)));
+		}
 	}
 
 	boolean contains(Color color, int position) {

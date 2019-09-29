@@ -4,18 +4,18 @@ public class Result {
 
 	private static final int NUM = 4;
 
-	private int deads = 0;
+	private int deads;
 
-	private int damaged = 0;
+	private int damaged;
 
-	Result(int deads, int damaged) {
+	public Result(int deads, int damaged) {
 		assert deads >= 0;
 		assert damaged >= 0;
 		this.deads = deads;
 		this.damaged = damaged;
 	}
 
-	boolean isWinner() {
+	public boolean isWinner() {
 		return this.deads == NUM;
 	}
 
