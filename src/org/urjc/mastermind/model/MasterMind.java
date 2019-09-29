@@ -20,7 +20,7 @@ public class MasterMind {
 		System.exit(0);
 	}
 
-	public void play() {
+	private void play() {
 
 		do {
 			writeTitle();
@@ -45,7 +45,7 @@ public class MasterMind {
 
 	}
 
-	public boolean playAgain() {
+	private boolean playAgain() {
 		return scanner.nextLine().charAt(0) == YES;
 	}
 
