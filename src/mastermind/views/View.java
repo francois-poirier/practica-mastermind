@@ -1,39 +1,12 @@
 package mastermind.views;
 
-import mastermind.controllers.ProposalController;
-import mastermind.controllers.ResumeController;
-import mastermind.controllers.StartController;
+import mastermind.controllers.Controller;
+import mastermind.controllers.ControllersVisitor;
 
-public abstract class View {
+public abstract class View implements ControllersVisitor {
 	
-	protected StartController startController;
-
-	protected ProposalController proposalController;
-
-	protected ResumeController resumeController;
-
-	public View(StartController startController, ProposalController proposalController, ResumeController resumeController) {
-		this.startController = startController;
-		this.proposalController = proposalController;
-		this.resumeController = resumeController;
+	public void interact(Controller controller) {
+		controller.accept(this);
 	}
-
-	public void interact() {
-		boolean newGame;
-		do {
-			this.start();
-			boolean finished;
-			do {
-				finished = this.propose();
-			} while (!finished);
-			newGame = this.isNewGame();
-		} while (newGame);
-	}
-
-	protected abstract void start();
-
-	protected abstract boolean propose();
-
-	protected abstract boolean isNewGame();
 
 }

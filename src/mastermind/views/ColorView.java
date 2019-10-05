@@ -5,7 +5,6 @@ import mastermind.models.Color;
 public class ColorView {
 	
 	public static final char[] INITIALS = {'r', 'b', 'y', 'g', 'o', 'p'};
-
 	protected Color color;
 
 	public ColorView(Color color) {

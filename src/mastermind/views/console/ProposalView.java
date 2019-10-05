@@ -3,50 +3,34 @@ package mastermind.views.console;
 import java.util.List;
 
 import mastermind.controllers.ProposalController;
-import mastermind.views.console.ErrorView;
-import santaTecla.utils.ConsoleDelegate;
-import mastermind.views.MessageView;
-import mastermind.models.Error;
 import mastermind.models.Color;
+import mastermind.models.Error;
+import mastermind.views.MessageView;
+import santaTecla.utils.ConsoleDelegate;
 
 public class ProposalView extends ConsoleDelegate {
 
-	private ProposalController proposalController;
-	private SecretCombinationView secretCombinationView;
-	private ProposedCombinationView proposedCombinationView;
-	private ResultView resultView;
-
-	public ProposalView(ProposalController proposalController) {
-		this.proposalController = proposalController;
-		this.secretCombinationView = new SecretCombinationView(this.proposalController);
-		this.proposedCombinationView = new ProposedCombinationView(this.proposalController);
-		this.resultView = new ResultView(this.proposalController);
-	}
-
-	public boolean interact() {
+	public void interact(ProposalController proposalController) {
 		Error error;
 		do {
-			List<Color> colors = this.proposedCombinationView.read();
-			error = this.proposalController.addProposedCombination(colors);
+			List<Color> colors = new ProposedCombinationView(proposalController).read();
+			error = proposalController.addProposedCombination(colors);
 			if (error != null) {
 				new ErrorView(error).writeln();
 			}
 		} while (error != null);
 		this.console.writeln();
-		new AttemptsView(this.proposalController).writeln();
-		this.secretCombinationView.writeln();
-		for (int i = 0; i < this.proposalController.getAttempts(); i++) {
-			this.proposedCombinationView.write(i);
-			this.resultView.writeln(i);
+		new AttemptsView(proposalController).writeln();
+		new SecretCombinationView(proposalController).writeln();
+		for (int i = 0; i < proposalController.getAttempts(); i++) {
+			new ProposedCombinationView(proposalController).write(i);
+			new ResultView(proposalController).writeln(i);
 		}
-		if (this.proposalController.isWinner()) {
+		if (proposalController.isWinner()) {
 			this.console.writeln(MessageView.WINNER.getMessage());
-			return true;
-		} else if (this.proposalController.isLooser()) {
+		} else if (proposalController.isLooser()) {
 			this.console.writeln(MessageView.LOOSER.getMessage());
-			return true;
 		}
-		return false;
 	}
 
 }

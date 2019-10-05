@@ -55,4 +55,8 @@ public class Game {
 		return this.results.get(position).getWhites();
 	}
 
+	public int getWidth() {
+		return Combination.getWidth();
+	}
+
 }

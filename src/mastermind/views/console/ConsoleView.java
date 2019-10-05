@@ -6,33 +6,30 @@ import mastermind.controllers.StartController;
 import mastermind.views.View;
 
 public class ConsoleView extends View {
-
+	
 	private StartView startView;
-
 	private ProposalView proposalView;
-
 	private ResumeView resumeView;
-
-	public ConsoleView(StartController startController, ProposalController proposalController, ResumeController resumeController) {
-		super(startController, proposalController, resumeController);
-		this.startView = new StartView(this.startController);
-		this.proposalView = new ProposalView(this.proposalController);
-		this.resumeView = new ResumeView(this.resumeController);
+	
+	public ConsoleView(){
+		this.startView = new StartView();
+		this.proposalView = new ProposalView();
+		this.resumeView = new ResumeView();
 	}
 
 	@Override
-	protected void start() {
-		this.startView.interact();
+	public void visit(StartController startController) {
+		this.startView.interact(startController);		
 	}
 
 	@Override
-	protected boolean propose() {
-		return this.proposalView.interact();
+	public void visit(ProposalController proposalController) {
+		this.proposalView.interact(proposalController);
 	}
 
 	@Override
-	protected boolean isNewGame() {
-		return this.resumeView.interact();
+	public void visit(ResumeController resumeController) {
+		this.resumeView.interact(resumeController);
 	}
 
 }

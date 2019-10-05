@@ -3,7 +3,7 @@ package mastermind.views.console;
 import mastermind.models.Color;
 import santaTecla.utils.Console;
 
-class ColorView extends mastermind.views.ColorView {
+public class ColorView extends mastermind.views.ColorView {
 
 	public ColorView(Color color) {
 		super(color);

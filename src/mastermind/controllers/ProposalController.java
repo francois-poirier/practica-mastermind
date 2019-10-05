@@ -4,13 +4,14 @@ import java.util.List;
 
 import mastermind.models.Combination;
 import mastermind.models.Game;
+import mastermind.models.State;
 import mastermind.models.Color;
 import mastermind.models.Error;
 
 public class ProposalController extends Controller {
 
-	public ProposalController(Game game) {
-		super(game);
+	public ProposalController(Game game, State state) {
+		super(game, state);
 	}
 
 	public Error addProposedCombination(List<Color> colors) {
@@ -32,6 +33,9 @@ public class ProposalController extends Controller {
 		}
 		if (error == null){
 			this.game.addProposedCombination(colors);
+			if (this.game.isWinner() || this.game.isLooser()) {
+				this.state.next();
+			}
 		}
 		return error;	
 	}
@@ -58,6 +62,11 @@ public class ProposalController extends Controller {
 
 	public int getWhites(int position) {
 		return this.game.getWhites(position);
+	}
+	
+	@Override
+	public void accept(ControllersVisitor controllersVisitor) {
+		controllersVisitor.visit(this);
 	}
 
 }

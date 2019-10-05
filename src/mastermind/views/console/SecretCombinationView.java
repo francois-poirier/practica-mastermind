@@ -8,7 +8,8 @@ public class SecretCombinationView extends ConsoleDelegate {
 	
 	private Controller controller;
 	
-	public SecretCombinationView (Controller controller){
+	public SecretCombinationView(Controller controller) {
+		super();
 		this.controller = controller;
 	}
 	
