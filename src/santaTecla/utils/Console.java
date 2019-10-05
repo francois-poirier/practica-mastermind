@@ -21,10 +21,6 @@ public class Console {
 		} while (!ok);
 		return input;
 	}
-	
-	public String readString() {
-		return this.readString("");
-	}
 
 	public int readInt(String title) {
 		int input = 0;

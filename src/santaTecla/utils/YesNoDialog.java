@@ -1,6 +1,6 @@
 package santaTecla.utils;
 
-public class YesNoDialog  extends ConsoleView {
+public class YesNoDialog  extends ConsoleDelegate {
 
 	private static final char AFIRMATIVE = 'y';
 
@@ -11,11 +11,12 @@ public class YesNoDialog  extends ConsoleView {
 	private static final String MESSAGE = "The value must be '" + YesNoDialog.AFIRMATIVE + "' or '"
 			+ YesNoDialog.NEGATIVE + "'";
 
-	public boolean read() {
+	public boolean read(String title) {
+		assert title != null;
 		char answer;
 		boolean ok;
 		do {
-			answer = this.console.readChar(YesNoDialog.QUESTION);
+			answer = this.console.readChar(title + YesNoDialog.QUESTION);
 			ok = YesNoDialog.isAfirmative(answer) || YesNoDialog.isNegative(answer);
 			if (!ok) {
 				this.console.writeln(YesNoDialog.MESSAGE);

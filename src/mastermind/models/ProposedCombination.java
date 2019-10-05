@@ -2,8 +2,13 @@ package mastermind.models;
 
 import java.util.List;
 
+import mastermind.models.Color;
+
 public class ProposedCombination extends Combination {
 
+	public ProposedCombination(List<Color> colors) {
+		this.colors = colors;
+	}
 
 	public boolean contains(Color color, int position) {
 		return this.colors.get(position) == color;
@@ -16,10 +21,6 @@ public class ProposedCombination extends Combination {
 			}
 		}
 		return false;
-	}
-
-	public List<Color> getColors() {
-		return this.colors;
 	}
 
 }
