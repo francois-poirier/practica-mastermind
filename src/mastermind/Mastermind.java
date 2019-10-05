@@ -1,79 +1,25 @@
 package mastermind;
 
-import java.util.List;
-import java.util.ArrayList;
-import santaTecla.utils.WithConsoleModel;
-import santaTecla.utils.YesNoDialog;
 
-public class Mastermind extends WithConsoleModel {
+import mastermind.models.Game;
+import mastermind.views.GameView;
 
-	private static final int MAX_LONG = 10;
-	private SecretCombination secretCombination;
-	private List<ProposedCombination> proposedCombinations;
-	private List<Result> results;
+public class Mastermind {
+	
+	private Game game;
+	
+	private GameView view;
 
 	private Mastermind() {
-		this.clear();
-	}
-
-	private void clear() {
-		this.secretCombination = new SecretCombination();
-		this.proposedCombinations = new ArrayList<ProposedCombination>();
-		this.results = new ArrayList<Result>();
+		this.game = new Game();
+		this.view = new GameView(this.game);
 	}
 
 	private void play() {
-		Message.TITLE.writeln();
-		this.secretCombination.writeln();
-		do {
-			do {
-				ProposedCombination proposedCombination = new ProposedCombination();
-				proposedCombination.read();
-				this.proposedCombinations.add(proposedCombination);
-				this.results.add(this.secretCombination.getResult(proposedCombination));
-				this.writeln();
-			} while (!isFinished());
-		} while (this.isResumed());
+		this.view.interact();
 	}
-
-	private void writeln() {
-		this.console.writeln();
-		Message.ATTEMPTS.writeln(this.getAttempts());
-		this.secretCombination.writeln();
-		for (int i = 0; i < this.getAttempts(); i++) {
-			this.proposedCombinations.get(i).write();
-			this.results.get(i).writeln();
-		}
-	}
-
-	private boolean isFinished() {
-		if (this.results.get(this.getAttempts() - 1).isWinner()) {
-			Message.WINNER.writeln();
-			return true;
-		}
-		if (this.getAttempts() == Mastermind.MAX_LONG) {
-			Message.LOOSER.writeln();
-			return true;
-		}
-		return false;
-	}
-
-	private int getAttempts() {
-		return this.proposedCombinations.size();
-	}
-
-	private boolean isResumed() {
-		boolean resumed;
-		Message.RESUME.write();
-		resumed = new YesNoDialog().read();
-		if (resumed) {
-			this.clear();
-		}
-		return resumed;
-	}
-
+	
 	public static void main(String[] args) {
 		new Mastermind().play();
 	}
-
 }

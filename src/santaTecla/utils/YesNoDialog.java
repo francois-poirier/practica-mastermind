@@ -1,6 +1,6 @@
 package santaTecla.utils;
 
-public class YesNoDialog  extends WithConsoleModel {
+public class YesNoDialog  extends ConsoleView {
 
 	private static final char AFIRMATIVE = 'y';
 

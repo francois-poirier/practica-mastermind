@@ -1,8 +1,8 @@
-package mastermind;
+package mastermind.views;
 
 import santaTecla.utils.Console;
 
-enum Message {
+enum MessageView {
 	ATTEMPTS("#attempts attempt(s): "), 
 	SECRET("*"), 
 	RESUME("Do you want to continue"), 
@@ -17,27 +17,27 @@ enum Message {
 	
 	static private Console console; 
 	static {
-		Message.console = new Console();
+		MessageView.console = new Console();
 	}
 
-	private Message(String message) {
+	private MessageView(String message) {
 		this.message = message;
 	}
 
 	void write() {
-		Message.console.write(this.message);
+		MessageView.console.write(this.message);
 	}
 
 	void writeln() {
-		Message.console.writeln(this.message);
+		MessageView.console.writeln(this.message);
 	}
 
 	void writeln(int attempts) {
-		Message.console.writeln(this.message.replaceAll("#attempts", "" + attempts));
+		MessageView.console.writeln(this.message.replaceAll("#attempts", "" + attempts));
 	}
 
 	void writeln(int blacks, int whites) {
-		Message.console.writeln(this.message.replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));
+		MessageView.console.writeln(this.message.replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));
 	}
 
 }
