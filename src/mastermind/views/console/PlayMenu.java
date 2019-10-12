@@ -12,5 +12,5 @@ public class PlayMenu extends Menu {
 		this.addCommand(new UndoCommand(playController));
 		this.addCommand(new RedoCommand(playController));
 	}
-	
+
 }

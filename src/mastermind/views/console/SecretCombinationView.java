@@ -1,7 +1,6 @@
 package mastermind.views.console;
 
 import mastermind.controllers.Controller;
-import mastermind.views.MessageView;
 
 public class SecretCombinationView {
 	
@@ -18,4 +17,5 @@ public class SecretCombinationView {
 		}
 		MessageView.NEW_LINE.writeln();
 	}
+	
 }

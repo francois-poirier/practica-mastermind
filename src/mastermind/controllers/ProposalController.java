@@ -2,10 +2,11 @@ package mastermind.controllers;
 
 import java.util.List;
 
-import mastermind.models.Color;
 import mastermind.models.Combination;
-import mastermind.models.Error;
 import mastermind.models.Session;
+import mastermind.models.SessionImplementation;
+import mastermind.types.Color;
+import mastermind.types.Error;
 
 public class ProposalController extends Controller {
 
@@ -22,45 +23,46 @@ public class ProposalController extends Controller {
 				if (colors.get(i) == null) {
 					error = Error.WRONG_CHARACTERS;
 				} else {
-					for (int j = i+1; j < colors.size(); j++) {
+					for (int j = i + 1; j < colors.size(); j++) {
 						if (colors.get(i) == colors.get(j)) {
 							error = Error.DUPLICATED;
 						}
 					}
-				}				
+				}
 			}
 		}
-		if (error == null){
-			this.session.addProposedCombination(colors);
-			if (this.session.isWinner() || this.session.isLooser()) {
-				this.session.next();
+		if (error == null) {
+			((SessionImplementation) this.session).addProposedCombination(colors);
+			if (((SessionImplementation) this.session).isWinner()
+					|| ((SessionImplementation) this.session).isLooser()) {
+				((SessionImplementation) this.session).next();
 			}
 		}
-		return error;	
+		return error;
 	}
 
 	public boolean isWinner() {
-		return this.session.isWinner();
+		return ((SessionImplementation) this.session).isWinner();
 	}
 
 	public boolean isLooser() {
-		return this.session.isLooser();
+		return ((SessionImplementation) this.session).isLooser();
 	}
-	
+
 	public int getAttempts() {
-		return this.session.getAttempts();
+		return ((SessionImplementation) this.session).getAttempts();
 	}
 
 	public List<Color> getColors(int position) {
-		return this.session.getColors(position);
+		return ((SessionImplementation) this.session).getColors(position);
 	}
 
 	public int getBlacks(int position) {
-		return this.session.getBlacks(position);
+		return ((SessionImplementation) this.session).getBlacks(position);
 	}
 
 	public int getWhites(int position) {
-		return this.session.getWhites(position);
+		return ((SessionImplementation) this.session).getWhites(position);
 	}
 
 }

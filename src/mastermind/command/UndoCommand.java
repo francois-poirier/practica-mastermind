@@ -1,8 +1,8 @@
 package mastermind.command;
 
 import mastermind.controllers.PlayController;
-import mastermind.views.MessageView;
 import mastermind.views.console.GameView;
+import mastermind.views.console.MessageView;
 
 public class UndoCommand extends Command {
 

@@ -3,11 +3,11 @@ package mastermind.command;
 import java.util.List;
 
 import mastermind.controllers.PlayController;
-import mastermind.models.Color;
-import mastermind.models.Error;
-import mastermind.views.MessageView;
+import mastermind.types.Color;
+import mastermind.types.Error;
 import mastermind.views.console.ErrorView;
 import mastermind.views.console.GameView;
+import mastermind.views.console.MessageView;
 import mastermind.views.console.ProposedCombinationView;
 
 public class ProposeCommand extends Command {

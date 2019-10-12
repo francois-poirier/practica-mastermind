@@ -3,6 +3,8 @@ package mastermind.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import mastermind.types.Color;
+
 public class ProposedCombination extends Combination {
 
 	public ProposedCombination(List<Color> colors) {

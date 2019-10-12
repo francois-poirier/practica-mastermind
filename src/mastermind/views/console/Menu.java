@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import mastermind.command.Command;
 import mastermind.utils.Range;
-import mastermind.views.MessageView;
 import santaTecla.utils.ConsoleDelegate;
 
 public abstract class Menu extends ConsoleDelegate {

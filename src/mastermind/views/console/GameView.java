@@ -1,9 +1,9 @@
 package mastermind.views.console;
 
 import mastermind.controllers.PlayController;
-import mastermind.views.MessageView;
+import santaTecla.utils.ConsoleDelegate;
 
-public class GameView {
+public class GameView extends ConsoleDelegate {
 
 	public GameView(PlayController playController) {
 		MessageView.NEW_LINE.writeln();
