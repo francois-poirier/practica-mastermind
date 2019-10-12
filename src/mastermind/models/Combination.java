@@ -3,8 +3,6 @@ package mastermind.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import mastermind.models.Color;
-
 public abstract class Combination {
 	
 	private static final int WIDTH = 4;

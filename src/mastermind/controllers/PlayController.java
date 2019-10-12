@@ -2,8 +2,8 @@ package mastermind.controllers;
 
 import java.util.List;
 
-import mastermind.models.Error;
 import mastermind.models.Color;
+import mastermind.models.Error;
 import mastermind.models.Session;
 
 public class PlayController extends AcceptorController {
