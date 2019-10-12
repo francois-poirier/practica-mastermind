@@ -14,18 +14,9 @@ public enum FrameType {
 	PROPOSECOMBINATION, 
 	WIDTH,
 	NEW_GAME,
-	EXISTS, 
-	HAS_NAME, 
-	SAVE,
-	NEXT,
-	CLOSE, 
-	START_NAME, 
-	TITLES, 
-	GET_TITLE, 
-	SET_TITLE, 
-	SAVE_NAMED, 
-	BLACKS, 
-	WHITES;
+	BLACKS,
+	WHITES,
+	CLOSE;
 
 	public static FrameType parser(String string) {
 		for(FrameType frameType : FrameType.values()) {
