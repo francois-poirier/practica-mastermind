@@ -3,19 +3,36 @@ package mastermind.controllers.implementation;
 import java.util.List;
 
 import mastermind.controllers.StartController;
+import mastermind.dao.SessionImplementationDao;
 import mastermind.models.Session;
 import mastermind.models.SessionImplementation;
 import mastermind.types.Color;
 
 public class StartControllerImplementation extends StartController {
 
-	public StartControllerImplementation(Session session) {
+	private SessionImplementationDao sessionImplementationDao;
+
+	StartControllerImplementation(Session session, SessionImplementationDao sessionImplementationDAO) {
 		super(session);
+		this.sessionImplementationDao = sessionImplementationDAO;
 	}
 
 	@Override
 	public void start() {
-		((SessionImplementation) this.session).next();		
+		((SessionImplementation)this.session).clearGame();
+		((SessionImplementation)this.session).registry();
+		this.sessionImplementationDao.wrap((SessionImplementation)this.session);
+		((SessionImplementation) this.session).next();
+	}
+
+	@Override
+	public void start(String name) {
+		this.sessionImplementationDao.load(name);
+	}
+
+	@Override
+	public String[] getGamesNames() {
+		return this.sessionImplementationDao.getGamesNames();
 	}
 
 	@Override
@@ -48,15 +65,5 @@ public class StartControllerImplementation extends StartController {
 		return ((SessionImplementation) this.session).isLooser();
 	}
 
-	@Override
-	public void start(String title) {
-		((SessionImplementation) this.session).load(title);
-		
-	}
-
-	@Override
-	public String[] getGamesNames() {
-		return ((SessionImplementation) this.session).getGamesNames();
-	}
 
 }

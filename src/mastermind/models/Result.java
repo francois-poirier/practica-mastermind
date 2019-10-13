@@ -1,9 +1,5 @@
 package mastermind.models;
 
-import java.io.BufferedReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
 public class Result {
 
 	private int blacks = 0;
@@ -36,22 +32,12 @@ public class Result {
 		return new Result(this.blacks, this.whites);
 	}
 
-	public void save(FileWriter fileWriter) {
-		try {
-			fileWriter.write(this.blacks + "\n");
-			fileWriter.write(this.whites + "\n");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void setBlacks(int blacks) {
+		this.blacks = blacks;
 	}
 
-	public void load(BufferedReader bufferedReader) {
-		try {
-			this.blacks = Integer.parseInt(bufferedReader.readLine());
-			this.whites = Integer.parseInt(bufferedReader.readLine());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void setWhites(int whites) {
+		this.whites = whites;
 	}
 
 }

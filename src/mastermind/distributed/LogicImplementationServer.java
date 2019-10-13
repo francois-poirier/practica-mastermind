@@ -1,6 +1,7 @@
 package mastermind.distributed;
 
 import mastermind.controllers.implementation.LogicImplementation;
+import mastermind.dao.SessionImplementationDao;
 import mastermind.distributed.dispatchers.AttemptsDispatcher;
 import mastermind.distributed.dispatchers.BlacksDispatcher;
 import mastermind.distributed.dispatchers.ColorsDispatcher;
@@ -29,6 +30,10 @@ import mastermind.distributed.dispatchers.WinnerDispatcher;
 import mastermind.types.FrameType;
 
 public class LogicImplementationServer extends LogicImplementation {
+
+	public LogicImplementationServer(SessionImplementationDao sessionImplementationDao) {
+		super(sessionImplementationDao);
+	}
 
 	public void createDispatchers(DispatcherPrototype dispatcherPrototype) {
 		dispatcherPrototype.add(FrameType.START, new StartDispatcher(this.startControllerImplementation));
