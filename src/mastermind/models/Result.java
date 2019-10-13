@@ -1,5 +1,6 @@
 package mastermind.models;
 
+import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -8,6 +9,10 @@ public class Result {
 	private int blacks = 0;
 	private int whites = 0;
 
+	public Result() {
+		
+	}
+	
 	public Result(int blacks, int whites) {
 		assert blacks >= 0;
 		assert whites >= 0;
@@ -40,5 +45,13 @@ public class Result {
 		}
 	}
 
+	public void load(BufferedReader bufferedReader) {
+		try {
+			this.blacks = Integer.parseInt(bufferedReader.readLine());
+			this.whites = Integer.parseInt(bufferedReader.readLine());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

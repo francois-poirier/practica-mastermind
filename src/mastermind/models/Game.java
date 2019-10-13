@@ -97,7 +97,22 @@ public class Game {
     }
 
     public void load(BufferedReader bufferedReader) {
-       
+    	try {
+			this.attempts = Integer.parseInt(bufferedReader.readLine());
+			this.secretCombination.load(bufferedReader);
+			for (int i = 0; i < this.attempts; i++) {
+				ProposedCombination proposedCombination = new ProposedCombination();
+				proposedCombination.load(bufferedReader);
+				this.proposedCombinations.add(proposedCombination);
+				Result result = new Result();
+				result.load(bufferedReader);
+				this.results.add(result);
+			}
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
     
     public boolean isFinished() {

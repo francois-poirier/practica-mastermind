@@ -9,6 +9,9 @@ import mastermind.types.Color;
 
 public class ProposedCombination extends Combination {
 
+	public ProposedCombination() {
+	}
+	
 	public ProposedCombination(List<Color> colors) {
 		this.colors = colors;
 	}

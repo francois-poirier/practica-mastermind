@@ -36,14 +36,4 @@ public class SecretCombination extends Combination {
 		return new Result(blacks, whites - blacks);
 	}
 
-	public void save(FileWriter fileWriter) {
-		try {
-			for (Color color : this.colors) {
-				fileWriter.write(color.name() + "\n");
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
 }
