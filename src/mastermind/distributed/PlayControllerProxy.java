@@ -96,4 +96,9 @@ public class PlayControllerProxy extends PlayController {
 		return this.tcpip.receiveInt();
 	}
 
+	@Override
+	public void next() {
+		this.tcpip.send(FrameType.NEXT.name());
+	}
+
 }

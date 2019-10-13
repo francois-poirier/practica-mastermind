@@ -11,11 +11,16 @@ public enum MessageView {
 	TITLE("----- MASTERMIND -----"),
 	WINNER("You've won!!! ;-)"),
 	LOOSER("You've lost!!! :-("),
-	PROPOSE_COMMAND("Propose Combination"),
-	UNDO_COMMAND("Undo previous Proposal"),
-	REDO_COMMAND("Redo previous Proposal"), 
+	PROPOSE("Propose Combination"),
+	UNDO("Undo previous Proposal"),
+	REDO("Redo previous Proposal"), 
 	NEW_LINE(""),
-	OPTION("----- Choose one option -----");;
+	OPTION("----- Choose one option -----"),
+	NAME("Name: "),
+	NEWGAME("Start a new game"),
+	EXIT("Exit game"),
+	OPENGAME("Open a saved game"),
+	SAVE("Do you want to save the game?");
 
 	private String message;
 	private Console console;

@@ -1,5 +1,6 @@
 package mastermind.views.console;
 
+import mastermind.command.ExitCommand;
 import mastermind.command.ProposeCommand;
 import mastermind.command.RedoCommand;
 import mastermind.command.UndoCommand;
@@ -11,6 +12,7 @@ public class PlayMenu extends Menu {
 		this.addCommand(new ProposeCommand(playController));
 		this.addCommand(new UndoCommand(playController));
 		this.addCommand(new RedoCommand(playController));
+		this.addCommand(new ExitCommand(playController));
 	}
 
 }

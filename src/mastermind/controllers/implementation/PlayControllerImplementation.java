@@ -2,6 +2,7 @@ package mastermind.controllers.implementation;
 
 import java.util.List;
 
+import mastermind.controllers.ExitController;
 import mastermind.controllers.PlayController;
 import mastermind.controllers.ProposalController;
 import mastermind.controllers.RedoController;
@@ -13,16 +14,16 @@ import mastermind.types.Error;
 public class PlayControllerImplementation extends PlayController {
 
 	private ProposalController proposalController;
-
 	private UndoController undoController;
-
 	private RedoController redoController;
+	private ExitController exitController;
 
 	public PlayControllerImplementation(Session session) {
 		super(session);
 		this.proposalController = new ProposalController(this.session);
 		this.undoController = new UndoController(this.session);
 		this.redoController = new RedoController(this.session);
+		this.exitController = new ExitController(session);
 	}
 
 	@Override
@@ -80,4 +81,8 @@ public class PlayControllerImplementation extends PlayController {
 		return this.proposalController.getWhites(position);
 	}
 
+	@Override
+	public void next() {
+		this.exitController.next();
+	}
 }

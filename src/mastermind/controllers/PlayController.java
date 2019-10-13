@@ -6,7 +6,7 @@ import mastermind.models.Session;
 import mastermind.types.Color;
 import mastermind.types.Error;
 
-public abstract class PlayController extends AcceptorController {
+public abstract class PlayController extends MasterMindController {
 
 	protected PlayController(Session session) {
 		super(session);
@@ -34,6 +34,8 @@ public abstract class PlayController extends AcceptorController {
 
 	public abstract int getAttempts();
 
+	public abstract void next();
+	
 	@Override
 	public void accept(ControllersVisitor controllersVisitor) {
 		controllersVisitor.visit(this);

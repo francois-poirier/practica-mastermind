@@ -3,20 +3,20 @@ package mastermind.views.console;
 import java.util.ArrayList;
 import java.util.List;
 
-import mastermind.controllers.PlayController;
+import mastermind.controllers.MasterMindController;
 import mastermind.types.Color;
 import santaTecla.utils.ConsoleDelegate;
 
 public class ProposedCombinationView extends ConsoleDelegate {
 	
-	private PlayController playController;
+	private MasterMindController masterMindController;
 	
-	public ProposedCombinationView(PlayController playController) {
-		this.playController = playController;
+	public ProposedCombinationView(MasterMindController masterMindController) {
+		this.masterMindController = masterMindController;
 	}
 	
 	public void write(int position) {
-		for (Color color : this.playController.getColors(position)) {
+		for (Color color : this.masterMindController.getColors(position)) {
 			new ColorView(color).write();
 		}
 	}

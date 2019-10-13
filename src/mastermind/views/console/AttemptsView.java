@@ -1,17 +1,17 @@
 package mastermind.views.console;
 
-import mastermind.controllers.PlayController;
+import mastermind.controllers.MasterMindController;
 
 public class AttemptsView {
 
-	private PlayController playController;
+	MasterMindController masterMindController;
 
-	public AttemptsView(PlayController playController) {
-		this.playController = playController;
+	public AttemptsView(MasterMindController masterMindController) {
+		this.masterMindController = masterMindController;
 	}
 
 	public void writeln() {
-		MessageView.ATTEMPTS.writeln(this.playController.getAttempts());
+		MessageView.ATTEMPTS.writeln(this.masterMindController.getAttempts());
 	}
 
 }

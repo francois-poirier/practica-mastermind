@@ -6,6 +6,7 @@ public class PlayView {
 
 	public void interact(PlayController playController) {
 		new PlayMenu(playController).execute();	
+		new MasterMindView(playController).writeln();
 	}
 
 }

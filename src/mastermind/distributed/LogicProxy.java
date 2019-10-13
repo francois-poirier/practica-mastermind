@@ -1,8 +1,8 @@
 package mastermind.distributed;
 
 import mastermind.controllers.Logic;
-import mastermind.models.StateValue;
 import mastermind.distributed.dispatchers.TCPIP;
+import mastermind.models.StateValue;
 
 public class LogicProxy extends Logic {
 	

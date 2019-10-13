@@ -7,10 +7,9 @@ import mastermind.models.StateValue;
 public class LogicImplementation extends Logic {
 
 	protected StartControllerImplementation startControllerImplementation;
-
 	protected PlayControllerImplementation playControllerImplementation;
-
 	protected ResumeControllerImplementation resumeControllerImplementation;
+	protected SaveControllerImplementation saveControllerImplementation;
 
 	public LogicImplementation() {
 		this.session = new SessionImplementation();
@@ -21,6 +20,7 @@ public class LogicImplementation extends Logic {
 		this.acceptorControllers.put(StateValue.IN_GAME, this.playControllerImplementation);
 		this.acceptorControllers.put(StateValue.FINAL, this.resumeControllerImplementation);
 		this.acceptorControllers.put(StateValue.EXIT, null);
+		this.acceptorControllers.put(StateValue.SAVING, this.saveControllerImplementation);
 	}
 
 }

@@ -1,5 +1,8 @@
 package mastermind.models;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Result {
 
 	private int blacks = 0;
@@ -27,4 +30,15 @@ public class Result {
 	public Result copy() {
 		return new Result(this.blacks, this.whites);
 	}
+
+	public void save(FileWriter fileWriter) {
+		try {
+			fileWriter.write(this.blacks + "\n");
+			fileWriter.write(this.whites + "\n");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
 }

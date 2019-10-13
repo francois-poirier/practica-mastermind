@@ -1,5 +1,7 @@
 package mastermind.models;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +32,15 @@ public class ProposedCombination extends Combination {
 			colors.add(color);
 		}
 		return new ProposedCombination(colors);
+	}
+
+	public void save(FileWriter fileWriter) {
+		try {
+			for (Color color : this.colors) {
+				fileWriter.write(color.name() + "\n");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

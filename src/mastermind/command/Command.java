@@ -1,17 +1,17 @@
 package mastermind.command;
 
-import mastermind.controllers.PlayController;
+import mastermind.controllers.AcceptorController;
 import santaTecla.utils.Console;
 
 public abstract class Command {
 	
-	protected PlayController playController;
+	protected AcceptorController acceptorController;
 	protected String title;
 	protected Console console;
 	
-	protected Command(String title, PlayController playController) {
+	protected Command(String title, AcceptorController acceptorController) {
 		this.title = title;
-		this.playController = playController;
+		this.acceptorController = acceptorController;
 		this.console = new Console();
 	}
 	

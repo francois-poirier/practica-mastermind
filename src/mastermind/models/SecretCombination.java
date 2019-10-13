@@ -1,5 +1,7 @@
 package mastermind.models;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Random;
 
@@ -32,6 +34,16 @@ public class SecretCombination extends Combination {
 			}
 		}
 		return new Result(blacks, whites - blacks);
+	}
+
+	public void save(FileWriter fileWriter) {
+		try {
+			for (Color color : this.colors) {
+				fileWriter.write(color.name() + "\n");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

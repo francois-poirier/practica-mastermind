@@ -1,6 +1,7 @@
 package mastermind.distributed;
 
 import mastermind.controllers.AcceptorController;
+import mastermind.distributed.dispatchers.TCPIP;
 
 public abstract class Dispatcher {
 

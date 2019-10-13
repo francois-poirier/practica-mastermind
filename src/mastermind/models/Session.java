@@ -2,6 +2,8 @@ package mastermind.models;
 
 public interface Session {
 	
-	StateValue getValueState();
-	int getWidth();
+	public StateValue getValueState();
+	public int getWidth();
+	public String getName();
+	public void setName(String name);
 }

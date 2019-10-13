@@ -9,6 +9,8 @@ public abstract class ResumeController extends AcceptorController {
 	}
 
 	public abstract void resume(boolean newGame);
+	
+	public abstract void isNewGame(boolean newGame);
 
 	@Override
 	public void accept(ControllersVisitor controllersVisitor) {

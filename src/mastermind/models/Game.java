@@ -1,5 +1,8 @@
 package mastermind.models;
 
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +39,9 @@ public class Game {
 	}
 	
 	public boolean isWinner() {
+		if (this.attempts == 0) {
+			return false;
+		}
 		return this.results.get(this.attempts-1).isWinner();
 	}
 
@@ -76,4 +82,25 @@ public class Game {
 			this.results.add(memento.getResult(i).copy());
 		}
 	}
+	
+	public void save(FileWriter fileWriter) {
+		try {
+			fileWriter.write(attempts + "\n");
+			this.secretCombination.save(fileWriter);
+			for (int i = 0; i < attempts; i++) {
+				this.proposedCombinations.get(i).save(fileWriter);
+				this.results.get(i).save(fileWriter);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+
+    public void load(BufferedReader bufferedReader) {
+       
+    }
+    
+    public boolean isFinished() {
+    	return false;
+    }
 }
